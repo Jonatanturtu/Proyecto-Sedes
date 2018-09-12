@@ -34,7 +34,7 @@
                             
                             <tr>
                                 <th>Dni</th> 
-                                <th>Dni2</th> 
+                                 
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Email</th>
