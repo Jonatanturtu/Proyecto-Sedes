@@ -18,7 +18,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-body">
-                 <div class="panel-heading">   
+                 <div class="panel-heading">Listado de personas:</div>   
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -29,8 +29,8 @@
 
                     
                     
-                        <table  class="table table-hover table-condensed">
-                          <thead>     
+                        <table  class="table">
+                          <thead class="table-dark">     
                             
                             <tr>
                                 <th>Dni</th> 
