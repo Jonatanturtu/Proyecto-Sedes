@@ -2,23 +2,18 @@
 
 @section('content')
 
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   
+    
 
-
-    <link rel=StyleSheet href="css\bootstrap.min.css" type="text/css" media="screen">
-    <script src="js\bootstrap.min.js" type="text/javascript"> </script>
-    <script src="js\jquery.js" type="text/javascript"> </script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js\fontawesome-all.js"></script>
     
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 col-md-offset-0">
+        <div class="col-md-12 col-md-offset-0 ">
             <div class="panel panel-default">
 
                 <div class="panel-body">
-                 <div class="panel-heading">Listado de personas:</div>   
+                 <div class="panel-heading"></div>   
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -29,10 +24,10 @@
 
                     
                     
-                        <table  class="table">
-                          <thead class="table-dark">     
+                       
+                            <table class="table table-responsive table-hover">     
                             
-                            <tr>
+                            <tr class="info">
                                 <th>Dni</th> 
                                  
                                 <th>Nombre</th>
@@ -40,15 +35,17 @@
                                 <th>Email</th>
                                 <th>Fecha de Nacimiento</th>
                                 <th>Teléfono</th>  
-                                <th>Área de Conocimiento</th> 
-                                <th>Ciudad de Procedencia</th> 
+                                <th>Área</th> 
+                                <th>Ciudad</th> 
                                 <th>Estudiante Actual</th> 
-                                <th>Nivel que ejerce</th> 
+                                <th>Nivel</th> 
+                                <th>Categoria</th>
+                                <th>Accion</th> 
                                 
                             </tr>
 
 
-                          </thead>
+                        
                             
                             @foreach($per as $Personas)
                               <tr> 
@@ -62,6 +59,7 @@
                                 <td>{{ $Personas->ciudadProcedencia }}</td>
                                 <td>{{ $Personas->estudianteActual }}</td>
                                 <td>{{ $Personas->nivelEjerce }}</td>
+                                <td>{{$Personas->categoria->descripcion}}</td>
                                 
                                 <td><!--<input type="button" name="Modificar" value="Modificar" style="font-size: 16px;" class="btn btn-primary form-control">--> 
 
@@ -69,8 +67,8 @@
                                     {{ Form::open(['route' => ['Listado.edit', $Personas->id], 'method' => 'get']) }} 
 
 
-
-                                    <button type="submit" name="editar" style="font-size: 16px;" class=" btn btn-primary form-control">Editar </button>
+                                    
+                                    <button type="submit" name="modificar" style="font-size: 16px;" class=" btn btn-primary form-control">Editar </button>
 
                                     {{ Form::close() }}
 
@@ -94,7 +92,7 @@
                             @endforeach  
                                 
                         </table>
-                         <!--BOTON AGREGAR--> 
+                        <!--BOTON AGREGAR--> 
                         <div style="position: relative;"> 
                             <button style="font-size: 16px;" class="btn btn-primary" data-toggle="modal" data-target="#ventanaAgregar">Agregar </button>
                         </div>          
@@ -170,7 +168,7 @@
                                                     <br>
 
                                                     <b><p>Nivel/es en el/los que ejerces:</p></b>
-                                                    <div class="center-on-page">
+                                                    <div >
                   
                                                       <input type="radio" name="optradio" id="rb1" value="inicial" />
                                                       <label for="rb1">Inicial</label> 
@@ -189,8 +187,10 @@
 
                                                     <hr class="style1">
                                                     
+                                                    
                                                     <b>Concurriras en condicion de:</b>
                                                     {{Form::select('categorias',$cat)}}
+                                                    
                                                     
                                                     <hr class="style1">
 
@@ -217,7 +217,10 @@
                                         </div>
                                     </div>
                                 </div>
-                           
+                                
+
+
+
 
                     {{ $per->links() }}
 

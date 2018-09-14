@@ -23,7 +23,6 @@ return view ('registro');
 
 Route::get('registro', 'PersonaController@selectcategoria');
 Route::get('home', 'PersonaController@agregar');
-
 Route::post('inserta', 'PersonaController@agregar');
 
 

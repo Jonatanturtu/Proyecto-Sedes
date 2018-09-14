@@ -48,7 +48,7 @@ class PersonaController extends Controller
                             $personas-> areaConocimiento = $request->areaCon;
                             $personas-> ciudadProcedencia = $request->ciudadP;
                             $personas-> estudianteActual = $request->estudianteActual;
-                            
+                            $personas->categoria_id= $request->categorias;
                             //$users-> password= bcrypt($request->password);
                             $personas->save();
                             

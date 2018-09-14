@@ -7,8 +7,38 @@
    
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+        <!-- Scripts -->
+    
+    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- FONTAWESOME -->
+    <script type="text/javascript" src="{{ asset('js\fontawesome-all.js') }}"></script>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- JQUERY -->
+    <script type="text/javascript" src="{{ asset('js\jquery.js') }}"></script>
+    <!-- BOOTSTRAP -->
+    <script type="text/javascript" src="{{ asset('js\bootstrap.min.js') }}"></script>  
+    <script type="text/javascript" src="{{ asset('js\bootstrap-dropdown.js') }}"></script> 
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+         
+
+    <!-- Styles -->
+    <link href="" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
+
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -74,6 +104,24 @@
     </div>
 
     <!-- Scripts -->
+    
+        <script type="text/javascript">
+        function Confirmar() {
+        //Ingresamos un mensaje a mostrar
+        var mensaje = confirm("¿Seguro que deseas eliminar este usuario?");
+        //Detectamos si el usuario acepto el mensaje
+        if (mensaje) {
+        alert("¡Se ha eliminado correctamente!");
+        }
+        //Detectamos si el usuario denegó el mensaje
+        else {
+        alert("¡No se ha eliminado!");
+        }
+        }
+        </script>  
+    
     <script src="{{ asset('js/app.js') }}"></script>
+
+
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <html>
 <head>
 	
@@ -126,52 +127,26 @@
 										</div>
 									</div>
 									</div>
-
-
-									<!--<p>Nivel/es en el/los que ejerces:</p>
-										<div class="center-on-page">
-										  <input type="radio" name="optradio" checked="checked" value="inicial"/>
-										  <label for="optradio">Inicial</label>
-										 
-										  <input type="radio" name="optradio" value="primaria"/>
-										  <label for="optradio">Primario</label>
-										 
-										
-										  <input type="radio" name="optradio" value="secundaria">
-										  <label>Secundario</label>
-											
-										
-										  <input type="radio" name="optradio" value="terciario">
-										  <label>Terciario</label>
-										
-										  <input type="radio" name="optradio" value="universitario">
-										  <label>Universitario</label>
-										  
-										  <input type="radio" id="idradio" name="optradio" value="otro">
-										  	<label>Otro:</label>
-										  	<input type="hidden" name="otro" id="campoOtro" >
-										   
-										</div>-->
 										
 									
 
-										<b><p>Nivel/es en el/los que ejerces:</p></b>
-										<div class="center-on-page">
-	  
-										  <input type="radio" name="optradio" id="rb1" value="inicial" />
-										  <label for="rb1">Inicial</label> 
-										  <input type="radio" name="optradio" id="rb2" value="primario"/> 
-										  <label for="rb2">Primario</label>
-										  <input type="radio" name="optradio" id="rb3" value="secundario" /> 
-										  <label for="rb3">Secundario</label>
-										  <input type="radio" name="optradio" id="rb4" value="terciario" />
-										  <label for="rb4">Terciario</label>
-										  <input type="radio" name="optradio" id="rb5" value="universitario" />
-										  <label for="rb5">Universitario</label>
-	  									  <input type="radio" id="idradio" name="optradio" value="otro">
-	  									  <label for="idradio">Otro</label>
-	  									  <input type="hidden" name="otro" id="campoOtro">
-  										</div>
+									<b><p>Nivel/es en el/los que ejerces:</p></b>
+									<div class="center-on-page">
+
+									  <input type="radio" name="optradio" id="rb1" value="inicial" />
+									  <label for="rb1">Inicial</label> 
+									  <input type="radio" name="optradio" id="rb2" value="primario"/> 
+									  <label for="rb2">Primario</label>
+									  <input type="radio" name="optradio" id="rb3" value="secundario" /> 
+									  <label for="rb3">Secundario</label>
+									  <input type="radio" name="optradio" id="rb4" value="Terciario" />
+									  <label for="rb4">Terciario</label>
+									  <input type="radio" name="optradio" id="rb5" value="universitario" />
+									  <label for="rb5">Universitario</label>
+										  <input type="radio" id="idradio" name="optradio" value="otro">
+										  <label for="idradio">Otro</label>
+										  <input type="hidden" name="otro" id="campoOtro">
+									</div>
   									
 									
 									<hr class="style1">

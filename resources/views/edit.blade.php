@@ -1,34 +1,27 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+
+@section('content')
+
 <html>
 <head>
 	
-	<script src="js\jquery.js" type="text/javascript"> </script>
-	<link rel=StyleSheet href="css\bootstrap.css" type="text/css" media="screen">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js\fontawesome-all.js"></script>
 	
-	<title>Modificar usuario</title>
+	
+<title>Modificar usuario</title>
+
+
+
 </head>
+
 <body>
-<form   action=""  method="post" id="form1" class="form">
+<form   action="{{route('Listado.update', $Personas->id)}}"  method="post" id="form1" class="form">
+
+								
+								<input type="hidden" name="_token" value="{{csrf_token()}}">
+								<input type="hidden" name="_method" value="PUT">
+
 			 					 
-			 					  
-			 					<div class="container-fluid">
-									<div class="row">
-									<div class="col-md-12" style="text-align: center; background-color:#3B579D;">
-						               	<a href="http://www.sedessapientiae.edu.ar/index-2.htm">
-						               		<img class="imagen" src="img/cabecera1.png" >
-						               	</a>					
-									</div>
-								</div>
-			 					
-
-
-
-			 					<br>
-
+			 			  
 			 					<div class="container">
 							      <div class="col-md-10 col-md-offset-1">
 							        
@@ -99,57 +92,35 @@
 									</div>
 
 
-									<!--<p>Nivel/es en el/los que ejerces:</p>
-										<div class="center-on-page">
-										  <input type="radio" name="optradio" checked="checked" value="inicial"/>
-										  <label for="optradio">Inicial</label>
-										 
-										  <input type="radio" name="optradio" value="primaria"/>
-										  <label for="optradio">Primario</label>
-										 
-										
-										  <input type="radio" name="optradio" value="secundaria">
-										  <label>Secundario</label>
-											
-										
-										  <input type="radio" name="optradio" value="terciario">
-										  <label>Terciario</label>
-										
-										  <input type="radio" name="optradio" value="universitario">
-										  <label>Universitario</label>
-										  
-										  <input type="radio" id="idradio" name="optradio" value="otro">
-										  	<label>Otro:</label>
-										  	<input type="hidden" name="otro" id="campoOtro" >
-										   
-										</div>-->
-										
+							
+									
+								<div class="form-group col-md-8">
+									<b><p>Nivel/es en el/los que ejerces:</p></b>
+									<div class="center-on-page">
+  
+									  <input type="radio" name="optradio" id="rb1" value="Inicial" />
+									  <label for="rb1">Inicial</label> 
+									  <input type="radio" name="optradio" id="rb2" value="Primario"/> 
+									  <label for="rb2">Primario</label>
+									  <input type="radio" name="optradio" id="rb3" value="Secundario" /> 
+									  <label for="rb3">Secundario</label>
+									  <input type="radio" name="optradio" id="rb4" value="Terciario" />
+									  <label for="rb4">Terciario</label>
+									  <input type="radio" name="optradio" id="rb5" value="Universitario" />
+									  <label for="rb5">Universitario</label>
+  									  <input type="radio" id="idradio" name="optradio" value="Otro">
+  									  <label for="idradio">Otro</label>
+  									  <input type="hidden" name="otro" id="campoOtro">
 									
 
-										<b><p>Nivel/es en el/los que ejerces:</p></b>
-										<div class="center-on-page">
-	  
-										  <input type="radio" name="optradio" id="rb1" value="{{ $Personas->nivelEjerce }}" />
-										  <label for="rb1">Inicial</label> 
-										  <input type="radio" name="optradio" id="rb2" value="{{ $Personas->nivelEjerce }}"/> 
-										  <label for="rb2">Primario</label>
-										  <input type="radio" name="optradio" id="rb3" value="{{ $Personas->nivelEjerce }}" /> 
-										  <label for="rb3">Secundario</label>
-										  <input type="radio" name="optradio" id="rb4" value="{{ $Personas->nivelEjerce }}" />
-										  <label for="rb4">Terciario</label>
-										  <input type="radio" name="optradio" id="rb5" value="{{ $Personas->nivelEjerce }}" />
-										  <label for="rb5">Universitario</label>
-	  									  <input type="radio" id="idradio" name="optradio" value="{{ $Personas->nivelEjerce }}">
-	  									  <label for="idradio">Otro</label>
-	  									  <input type="hidden" name="otro" id="campoOtro">
-  										</div>
   									
 									
 									<hr class="style1">
 
 									
 									<b>Concurriras en condicion de:</b>
-									
+                                    {{Form::select('categorias',$cat)}}
+									</div>
 									
 									<hr class="style1">
 
@@ -157,24 +128,24 @@
 									
 									<b>Sos actualmente estudiante del Sedes/ docente del Sedes o Pío XII?</b>
 									<select data-style="btn-light"  name="estudianteActual" required>
-										<option value="si">Si</option> 
-			    						<option value="no">No</option>
+										<option value="{{ $Personas->estudianteActual }}">Si</option> 
+			    						<option value="{{ $Personas->estudianteActual }}">No</option>
 									</select>
 										
 									<hr class="style1">
 
 							        
 
-									 <button type= "submit" id="sub" name="nsubmit" class="btn btn-light">Registrar</button>
+									 <button type= "submit" id="sub" name="nsubmit" class="btn btn-primary">Registrar</button>
 					      			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-					      		
+					      		</div>
 					      		
 					      		</form>
 					     	</div>
 					   	 </div>
 					  </div>
 
-					
+				</div>	
 					  			
 
 					  			<script type="text/javascript">
@@ -193,3 +164,5 @@
 								</script>
 </body>
 </html>
+
+@endsection

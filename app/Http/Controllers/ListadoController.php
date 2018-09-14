@@ -24,8 +24,10 @@ class ListadoController extends Controller
     {
         $cat=Categoria::pluck('descripcion','id');
         $per=persona::all();
-        $per=persona::paginate(5);
+        $per=persona::paginate(3);
+
         return view ('home', compact('per','cat'));
+        
     }
 
     /**
@@ -68,9 +70,9 @@ class ListadoController extends Controller
      */
     public function edit($id)
     {
+        $cat=categoria::pluck('descripcion','id');
         $Personas= Persona::find($id);
-       
-       return view('edit', compact('Personas'));
+        return view('edit', compact('Personas', 'cat'));
     }
 
     /**
@@ -82,7 +84,10 @@ class ListadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Personas = Persona::find($id);
+        $Personas->fill($request->all());
+        $Personas->save();
+        return redirect()->route('Listado.index'); 
     }
 
     /**
