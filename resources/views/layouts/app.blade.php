@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,8 +23,12 @@
     <!-- BOOTSTRAP -->
     <script type="text/javascript" src="{{ asset('js\bootstrap.min.js') }}"></script>  
     <script type="text/javascript" src="{{ asset('js\bootstrap-dropdown.js') }}"></script> 
+    
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    
+
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -105,22 +110,42 @@
 
     <!-- Scripts -->
     
-        <script type="text/javascript">
-        function Confirmar() {
-        //Ingresamos un mensaje a mostrar
-        var mensaje = confirm("¿Seguro que deseas eliminar este usuario?");
-        //Detectamos si el usuario acepto el mensaje
-        if (mensaje) {
-        alert("¡Se ha eliminado correctamente!");
-        }
-        //Detectamos si el usuario denegó el mensaje
-        else {
-        alert("¡No se ha eliminado!");
-        }
-        }
-        </script>  
+        
     
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>   
+    
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script> 
+    <label style="position: fixed; bottom: 0px; right:  0px; "> Versión: 1.0</label>    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <script type="text/javascript">
+         $(document).ready(function() {
+            $('#example').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
+          });
+        });
+         
+    </script>
+
+
+    <script type="text/javascript">
+    $("input[name='optradio']").click(function() {  
+            if($("#idradio").is(':checked')) {  
+                
+                $('#campoOtro').attr('type','text');
+                
+        } 
+        else 
+        {  
+                $('#campoOtro').attr('type','hidden');  
+        }  
+        
+        });      
+
+    </script>
+    
 
 
 </body>

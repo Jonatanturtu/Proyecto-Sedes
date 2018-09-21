@@ -3,13 +3,15 @@
 @section('content')
 
    
-    
+  
+     
+ 
 
     
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 col-md-offset-0 ">
+        <div class="col-md-12 col-md-offset-0">
             <div class="panel panel-default">
 
                 <div class="panel-body">
@@ -25,11 +27,10 @@
                     
                     
                        
-                            <table class="table table-responsive table-hover">     
-                            
+                        <table class="table table-responsive table-hover" id="tablaUsuarios">     
+                            <thead>
                             <tr class="info">
                                 <th>Dni</th> 
-                                 
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Email</th>
@@ -44,8 +45,9 @@
                                 
                             </tr>
 
-
+                            </thead>
                         
+                           <tbody> 
                             
                             @foreach($per as $Personas)
                               <tr> 
@@ -68,7 +70,7 @@
 
 
                                     
-                                    <button type="submit" name="modificar" style="font-size: 16px;" class=" btn btn-primary form-control">Editar </button>
+                                    <button  type="submit" name="modificar" style="font-size: 13px; background: transparent;" class=" btn btn-outline"> <i class="fas fa-edit"></i></button>
 
                                     {{ Form::close() }}
 
@@ -76,21 +78,24 @@
 
                                     {{ Form::open(['route' => ['Listado.destroy', $Personas->id], 'method' => 'delete']) }} 
 
-
-
-                                    <button type="submit" name="eliminar" style="font-size: 16px;" class=" btn btn-primary form-control">Eliminar </button>
+                                       
+                                         <button type="submit" name="eliminar" style="font-size: 13px; background: transparent;" class=" btn btn-outline"  onclick="alerta();" > <i class="fas fa-trash-alt"></i> </button>
+                                           
 
                                     {{ Form::close() }}
 
                                  </td>
-                                    
-                                          
+
+                                
+                                 </tr>
+
+                                @endforeach 
+                                </tbody>          
 
 
                                
-                              </tr>
-                            @endforeach  
-                                
+                              
+                              
                         </table>
                         <!--BOTON AGREGAR--> 
                         <div style="position: relative;"> 
@@ -169,23 +174,24 @@
 
                                                     <b><p>Nivel/es en el/los que ejerces:</p></b>
                                                     <div >
-                  
-                                                      <input type="radio" name="optradio" id="rb1" value="inicial" />
-                                                      <label for="rb1">Inicial</label> 
-                                                      <input type="radio" name="optradio" id="rb2" value="primario"/> 
-                                                      <label for="rb2">Primario</label>
-                                                      <input type="radio" name="optradio" id="rb3" value="secundario" /> 
-                                                      <label for="rb3">Secundario</label>
-                                                      <input type="radio" name="optradio" id="rb4" value="terciario" />
-                                                      <label for="rb4">Terciario</label>
-                                                      <input type="radio" name="optradio" id="rb5" value="universitario" />
-                                                      <label for="rb5">Universitario</label>
+                                                   
+                                                      <input type="radio" name="optradio" value="Inicial" />
+                                                      <label>Inicial</label> 
+                                                      <input type="radio" name="optradio" value="Primario"/> 
+                                                      <label>Primario</label>
+                                                      <input type="radio" name="optradio" value="Secundario" /> 
+                                                      <label>Secundario</label>
+                                                      <input type="radio" name="optradio" value="Terciario" />
+                                                      <label>Terciario</label>
+                                                      <input type="radio" name="optradio" value="Universitario" />
+                                                      <label >Universitario</label>
+                                                      
                                                       <input type="radio" id="idradio" name="optradio" value="otro">
-                                                      <label for="idradio">Otro</label>
+                                                      <label >Otro</label>
                                                       <input type="hidden" name="otro" id="campoOtro">
                                                     </div>
 
-                                                    <hr class="style1">
+                                                   <hr class="style1">
                                                     
                                                     
                                                     <b>Concurriras en condicion de:</b>
@@ -196,8 +202,8 @@
 
                                                     <b>Sos actualmente estudiante del Sedes/ docente del Sedes o Pío XII?</b>
                                                     <select data-style="btn-primary"  name="estudianteActual" required>
-                                                        <option value="si">Si</option> 
-                                                        <option value="no">No</option>
+                                                        <option value="Si">Si</option> 
+                                                        <option value="No">No</option>
                                                     </select>
 
                                                     <hr class="style1">
@@ -231,6 +237,28 @@
     </div>
 </div>
 
-                                
+        <script type="text/javascript">$(document).ready(function() {
+              $('#tablaUsuarios').DataTable({
+                "language": {
+                  "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+              });
+            });
+               
+            
+               
+           function alerta()
+            {
+             alert('Se eliminara este usuario');
+            } 
+            
+           
+          
+
+        </script> 
+
+        
+            
+       
 
 @endsection

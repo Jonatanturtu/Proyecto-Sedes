@@ -72,6 +72,7 @@ class ListadoController extends Controller
     {
         $cat=categoria::pluck('descripcion','id');
         $Personas= Persona::find($id);
+        
         return view('edit', compact('Personas', 'cat'));
     }
 
@@ -86,7 +87,9 @@ class ListadoController extends Controller
     {
         $Personas = Persona::find($id);
         $Personas->fill($request->all());
+        
         $Personas->save();
+
         return redirect()->route('Listado.index'); 
     }
 

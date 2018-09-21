@@ -23,8 +23,7 @@ class PersonaController extends Controller
 
     //validar contra la base si el dni y el correo ya existe
 
-          
-
+        
         $personas=Persona::where('dni',$request->dni)->get();
         
             if($personas->count() == 0 ) { //no existe
@@ -69,7 +68,7 @@ class PersonaController extends Controller
                          
                                     }
                            
-                            return view('confirmacion');
+                            return redirect('home');
                         }           
 
                         else

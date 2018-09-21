@@ -1,5 +1,4 @@
 
-<html>
 <head>
 	
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -131,21 +130,21 @@
 									
 
 									<b><p>Nivel/es en el/los que ejerces:</p></b>
-									<div class="center-on-page">
+									<div >
 
-									  <input type="radio" name="optradio" id="rb1" value="inicial" />
-									  <label for="rb1">Inicial</label> 
-									  <input type="radio" name="optradio" id="rb2" value="primario"/> 
-									  <label for="rb2">Primario</label>
-									  <input type="radio" name="optradio" id="rb3" value="secundario" /> 
-									  <label for="rb3">Secundario</label>
-									  <input type="radio" name="optradio" id="rb4" value="Terciario" />
-									  <label for="rb4">Terciario</label>
-									  <input type="radio" name="optradio" id="rb5" value="universitario" />
-									  <label for="rb5">Universitario</label>
-										  <input type="radio" id="idradio" name="optradio" value="otro">
-										  <label for="idradio">Otro</label>
-										  <input type="hidden" name="otro" id="campoOtro">
+									  <input type="radio" name="optradio"  value="Inicial" />
+									  <label >Inicial</label> 
+									  <input type="radio" name="optradio" value="Primario"/> 
+									  <label >Primario</label>
+									  <input type="radio" name="optradio" value="Secundario" /> 
+									  <label >Secundario</label>
+									  <input type="radio" name="optradio" value="Terciario" />
+									  <label >Terciario</label>
+									  <input type="radio" name="optradio" value="Universitario" />
+									  <label >Universitario</label>
+									  <input type="radio" id="idradio" name="optradio" value="otro">
+									  <label >Otro</label>
+									  <input type="hidden" name="otro" id="campoOtro">
 									</div>
   									
 									
@@ -161,8 +160,8 @@
 									
 									<b>Sos actualmente estudiante del Sedes/ docente del Sedes o Pío XII?</b>
 									<select data-style="btn-light"  name="estudianteActual" required>
-										<option value="si">Si</option> 
-			    						<option value="no">No</option>
+										<option value="Si">Si</option> 
+			    						<option value="No">No</option>
 									</select>
 										
 									<hr class="style1">
