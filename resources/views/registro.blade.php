@@ -12,6 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js\fontawesome-all.js"></script>
 
+	
+	
 
 
 	<title>Formulario de inscripción</title>
@@ -22,20 +24,26 @@
 
 </head>
 
-<body background="img/trans3.jpg">
+<body background="img/fondo2.jpg">
 
 								
 
-								@if(Session::has('mensaje'))
+								@if(Session::has('mensaje_dni'))
 								  <div class='alert alert-danger'> 
 								    <p><strong>{!! Session::get('mensaje') !!}</strong></p>                                
 								  </div>
 								@endif
 
 								
-								@if(Session::has('mensaje1'))
+								@if(Session::has('mensaje_correo'))
 								  <div class='alert alert-danger'> 
-								    <p><strong>{!! Session::get('mensaje1') !!}</strong></p>         
+								    <p><strong>{!! Session::get('mensaje_correo') !!}</strong></p>         
+								  </div>
+								@endif
+
+								@if(Session::has('mensaje_edad'))
+								  <div class='alert alert-danger'> 
+								    <p><strong>{!! Session::get('mensaje_edad') !!}</strong></p>         
 								  </div>
 								@endif
 			 					
@@ -93,36 +101,46 @@
 							        </div>
 							        </div>
 							        
-							        <div class="form-row">
+							  
+					        		<!--<div class="form-row">
 							          <div class="form-group col-md-6">
 							            <div class="input-group">
 							            <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
 										<input type="date" class="form-control" name="edad" id="edad" placeholder="Edad" required>
 							            </div>
-							          </div>
-							          
+							        </div>-->
+
 							        
-							          <div class="form-group col-md-6">
+					        		<div class="form-row">
+							            <div class="form-group col-md-6">
+								            <div class="input-group input-append date" id="">
+								               <span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>
+								               <input type="date" class="form-control" name="edad" placeholder="Fecha de nacimiento" />
+								            </div>
+						            	</div>
+							        
+						        															          
+							        <div class="form-group col-md-6">
 
 							            <div class="input-group">
-							            <span class="input-group-addon"><i class="fas fa-phone-square"></i></span>
-							            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono" required>
+							            		<span class="input-group-addon"><i class="fas fa-phone-square"></i></span>
+							            		<input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono" required>
 							          	</div>
 							          </div>
 							        </div>
 							        
 							        <div class="form-row">
-							          <div class="form-group col-md-6">
-							       		<div class="input-group">
-							            <span class="input-group-addon"><i class="fas fa-globe-americas"></i></span>
-										<input type="text" name="ciudadP" id="ciudadP" placeholder="Ciudad de procedencia" class="form-control" required>
-							    		</div>
-							    	</div>
+								          <div class="form-group col-md-6">
+								       		<div class="input-group">
+								            	<span class="input-group-addon"><i class="fas fa-globe-americas"></i></span>
+												<input type="text" name="ciudadP" id="ciudadP" placeholder="Ciudad de procedencia" class="form-control" required>
+								    		</div>
+								    	</div>
 							        
 							        <div class="form-group col-md-6">
 								        <div class="input-group">
-							            <span class="input-group-addon"><i class="fas fa-university"></i></span>
-										<input type="text" name="areaCon" id="areaCon" placeholder="Area de conocimiento" class="form-control " required>
+							           			<span class="input-group-addon"><i class="fas fa-university"></i></span>
+												<input type="text" name="areaCon" id="areaCon" placeholder="Area de conocimiento" class="form-control " required>
 										</div>
 									</div>
 									</div>
@@ -168,35 +186,77 @@
 
 							        
 
-									 <button type= "submit" id="sub" name="nsubmit" class="btn btn-primary">Registrar</button>
+									<button type= "submit" id="sub" name="nsubmit" class="btn btn-primary">Registrar</button>
 					      			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-					      		
+					      			
 					      		
 					      		</form>
+
+
+
+
+
+								<div class="row">
+						            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center ">
+									 
+										  <div class="tiny-footer">
+							                        <p>© 2018  sedessapientiae.com.ar Todos los derechos reservados | <a href="#" data-toggle="modal" data-target="#myModal">Desarrolladores</a></p>
+							              </div>
+
+									  
+
+									  	  <!-- Modal -->
+										  <div  class="modal fade" id="myModal" role="dialog"  data-backdrop="false">
+										    <div class="modal-dialog">
+										    
+										      <!-- Modal content-->
+										      <div class="modal-content">
+										        <div class="modal-header">Desarrollado por los alumnos:
+										          <button type="button" class="close" data-dismiss="modal">×</button>
+										          
+										        </div>
+										        <div class="modal-body">
+										          <p>- Arrejoría Axel</p>
+										          <p>- Martinez Juan</p>
+										      	  <p>- Turtú Jonatan</p>
+										        </div>
+										        <div class="modal-footer">
+										          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+										        </div>
+										      </div>
+										      
+										    </div>
+										  </div>
+									  
+									</div>
+						        </div>
+        
+					      	
+					     	
+
 					     	</div>
 					   	 </div>
 					  </div>
 
-					
-					  			
 
-					  			<script type="text/javascript">
-											$("input[name='optradio']").click(function() {  
-										        if($("#idradio").is(':checked')) {  
-										            
-										            $('#campoOtro').attr('type','text');
-										            
-										   	} 
-										    else 
-										    {  
-										            $('#campoOtro').attr('type','hidden');  
-										    }  
-										    
-											});  
-								</script>
+		  			<script type="text/javascript">
+								$("input[name='optradio']").click(function() {  
+							        if($("#idradio").is(':checked')) {  
+							            
+							            $('#campoOtro').attr('type','text');
+							            
+							   	} 
+							    else 
+							    {  
+							            $('#campoOtro').attr('type','hidden');  
+							    }  
+							    
+								});  
+					</script>
 
-</body>
+								
 
+							
 </html>
 
 

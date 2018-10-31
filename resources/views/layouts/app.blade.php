@@ -27,10 +27,14 @@
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+  
+
+    
     
 
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Sedes Sapientiae Jornada</title>
 
          
 
@@ -42,7 +46,6 @@
     <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
 
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
     
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -62,8 +65,9 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('http://www.sedessapientiae.edu.ar/index-2.htm') }}">
+                     <!--   {{ config('app.name', 'Sedes Sapientiae Jornada') }}-->
+                        Administrador Jornadas
                     </a>
                 </div>
 
@@ -78,7 +82,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                           <!-- <li><a href="{{ route('register') }}">Register</a></li> -->
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -94,6 +98,7 @@
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    S
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -115,12 +120,12 @@
     <script src="{{ asset('js/app.js') }}"></script>   
     
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script> 
-    <label style="position: fixed; bottom: 0px; right:  0px; "> Versión: 1.0</label>    
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+       
+   
     
     <script type="text/javascript">
          $(document).ready(function() {
-            $('#example').DataTable({
+            $('#tablaUsuarios').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             }
@@ -131,10 +136,10 @@
 
 
     <script type="text/javascript">
-    $("input[name='optradio']").click(function() {  
-            if($("#idradio").is(':checked')) {  
-                
-                $('#campoOtro').attr('type','text');
+        $("input[name='optradio']").click(function() {  
+                if($("#idradio").is(':checked')) {  
+                    
+                    $('#campoOtro').attr('type','text');
                 
         } 
         else 
@@ -145,7 +150,12 @@
         });      
 
     </script>
-    
+
+
+
+  
+
+
 
 
 </body>

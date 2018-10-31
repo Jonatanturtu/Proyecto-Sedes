@@ -1,5 +1,7 @@
 <?php
 
+use App\Faker\Provider\es_AR;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -12,7 +14,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+/*$factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -22,25 +24,22 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+*/
 
-/* $factory->define(App\Persona::class, function (Faker\Generator $faker) {
-
+$factory->define(App\Persona::class, function (Faker\Generator $faker) {
+	
     return [
-        'dni' => $faker->text(10)->unique(),
-        'nombre' => $faker->text(10),
-        'apellido' => $faker->text(10),
+        'dni' => $faker->unique()->numberBetween(0,900000000),
+        'nombre' => $faker->firstName,
+        'apellido' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
         //'password' => $password ?: $password = bcrypt('secret'),
-        'edad' => $faker->text(2),
-        'telefono' => $faker->text(10),
-        'ciudadProcedencia' => $faker->text(20),
+        'edad' => $faker->date('d/m/Y'),
+        'telefono' => $faker->phoneNumber(),
+        'ciudadProcedencia' => $faker->state(),
         'areaConocimiento' => $faker->text(15),
-        'nivelEjerce' => "Universitario",
-        'estudianteActual' => "Si",
-        'categoria_id' => "1",
-
-        'remember_token' => str_random(10),
+        'nivelEjerce' => $faker->randomElement(array ('Inicial','Primario','Secundario','Terciario','Universitario')),
+        'estudianteActual' => $faker->randomElement(array ('Si', 'No')),
+        'categoria_id' => App\Categoria::all()->random()->id,
     ];
-});
-
-*/
+}); 

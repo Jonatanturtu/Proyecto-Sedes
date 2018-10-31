@@ -24,7 +24,6 @@ class ListadoController extends Controller
     {
         $cat=Categoria::pluck('descripcion','id');
         $per=persona::all();
-        $per=persona::paginate(3);
 
         return view ('home', compact('per','cat'));
         

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-    hola
+   ¡Su correo ha sido confirmado!
   
 </body>
 </html>

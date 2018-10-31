@@ -20,6 +20,27 @@ class RegisterController extends Controller
     |
     */
 
+    /**
+ * Show the application registration form.
+ *
+ * @return \Illuminate\Http\Response
+ */
+public function showRegistrationForm()
+{
+    return redirect('login');
+}
+
+/**
+ * Handle a registration request for the application.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\Response
+ */
+public function register(Request $request)
+{
+    abort(404);
+}
+
     use RegistersUsers;
 
     /**
