@@ -67,7 +67,15 @@ class PersonaController extends Controller
                                     $personas-> areaConocimiento = $request->areaCon;
                                     $personas-> ciudadProcedencia = $request->ciudadP;
                                     $personas-> estudianteActual = $request->estudianteActual;
+                                    if (\Auth::guest()){
+
+                                        $personas-> administrador = 0;
+                                    }
+                                    else {
+                                        $personas-> administrador = 1;
+                                    }
                                     $personas->categoria_id= $request->categorias;
+                                    
                                     $personas->save();
                                     $email=$request->email;
                                     $nombre=$request->nombre;
@@ -108,6 +116,6 @@ class PersonaController extends Controller
         $personas = Persona::all(); 
         $pdf = \PDF::loadView('pdfPersonas', compact('personas'));
         return $pdf->download('listadoPersonas.pdf');
-  }
+    }
 
 }

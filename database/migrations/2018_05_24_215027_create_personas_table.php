@@ -25,7 +25,7 @@ class CreatePersonasTable extends Migration
             $table->string('areaConocimiento');
             $table->string('nivelEjerce');
             $table->string('estudianteActual');
-            $table->boolean('verificado')->default(0);
+            $table->Boolean('administrador');
             $table->integer('categoria_id')->unsigned();
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();

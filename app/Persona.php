@@ -14,6 +14,7 @@ class Persona extends Model
    		return	$this->belongsTo(Categoria::class);
      }
 
+	 
 	 static function validarEdad ($edad)
 	 {
 

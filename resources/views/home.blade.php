@@ -30,7 +30,7 @@
                                     @endif
 
 
-                                                 <!--BOTON AGREGAR--> 
+                    <!--Modal agregar--> 
                 
                     <div>
                         
@@ -160,7 +160,7 @@
                     </div>
                 </div>
                 
-                                                
+                                                <!--Listado de usuarios registrados -->
                                                 <table class="table table-responsive table-hover" id="tablaUsuarios">     
                                                        <thead>
                                                             <tr class="info">
@@ -169,7 +169,8 @@
                                                                 <th>Apellido</th>
                                                                 <th>Email</th>
                                                                 <th>Fecha de Nacimiento</th>
-                                                                <th>Teléfono</th>  
+                                                                <th>Teléfono</th> 
+                                                                <th>Administrador</th> 
                                                                 <th>Modificar</th>
                                                                 <th>Eliminar</th> 
                                                                 
@@ -186,7 +187,11 @@
                                                             <td>{{ $Personas->email }}</td>
                                                             <td>{{ $Personas->edad }}</td>
                                                             <td>{{ $Personas->telefono }}</td>
-                                                          
+                                                            @if  (($Personas->administrador) == '1')
+                                                                <td>Si</td>
+                                                            @else
+                                                                <td>No</td>
+                                                            @endif
                                                             
                                                             <td>                                   
                                                                 {{ Form::open(['route' => ['Listado.edit', $Personas->id], 'method' => 'get']) }} 
