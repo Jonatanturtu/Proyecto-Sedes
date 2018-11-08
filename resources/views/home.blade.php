@@ -32,11 +32,11 @@
 
                     <!--Modal agregar--> 
                 
-                    <div>
+                    <div style="text-align: right;">
                         
-                        <form action="{{ url('pdfPersonas') }}" name="form_pdfPersonas" style="text-align: right;">
-                            <button style="font-size: 13px;" class="btn btn-success" >Generar PDF </button>
-                        </form>
+                       <form action="{{url('/exportarPdf')}}" method="get" id="form_pdf">
+                           <button>Generar PDF</button>
+                       </form>
                         
                     </div>
                     

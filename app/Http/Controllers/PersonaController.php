@@ -23,7 +23,7 @@ class PersonaController extends Controller
 
 
 
-                    //validar contra la base si el dni y el correo ya existe
+                    //Valida Dni, Edad, Correo
 
                     
                     $personas=Persona::where('dni',$request->dni)->get();
@@ -111,11 +111,20 @@ class PersonaController extends Controller
 
     }
 
-    public function pdfGenerate (){
+    public function pdfGenerate (Request $request){
     
-        $personas = Persona::all(); 
+        //$personas = Persona::all(); 
+        $personas=Persona::where('apellido',$request->filtrar)->get();
         $pdf = \PDF::loadView('pdfPersonas', compact('personas'));
         return $pdf->download('listadoPersonas.pdf');
+    }
+
+
+
+    public function exportar (){
+
+        return view ('exportarPdf');
+
     }
 
 }

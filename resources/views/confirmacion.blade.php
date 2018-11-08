@@ -27,26 +27,6 @@
 	               	</a>					
 				</div>
 			</div>
-			
-
-
-
-
-
-
-
-
-		<!--<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-10" style="text-align: center; background-color:#3B579D;">
-					
-
-					<img class="img" src="img/cabecera1.png"/>
-
-				</div>
-			</div>
-		</div>-->
-
 
 
 
